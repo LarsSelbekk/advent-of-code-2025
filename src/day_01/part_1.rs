@@ -16,10 +16,14 @@ fn solve(input: &str) -> usize {
 }
 
 fn solve_functional(input: &str) -> usize {
-    input.lines().map(parse_line).fold((INITIAL, 0), |(state, count), step| {
-        let state = (state + step) % MAX;
-        (state, if state == 0 { count + 1 } else { count })
-    }).1
+    input
+        .lines()
+        .map(parse_line)
+        .fold((INITIAL, 0), |(state, count), step| {
+            let state = (state + step) % MAX;
+            (state, if state == 0 { count + 1 } else { count })
+        })
+        .1
 }
 
 pub(crate) fn parse_line(input: &str) -> i32 {
