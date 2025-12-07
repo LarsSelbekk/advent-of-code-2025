@@ -39,7 +39,7 @@ fn solve(input: &str) -> usize {
         let operands_in_group = operands
             .peeking_take_while(|operand| operand.is_some())
             .collect::<Option<Vec<usize>>>()?;
-         operands.next();
+        operands.next();
         if operands_in_group.is_empty() {
             None
         } else {

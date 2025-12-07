@@ -1,5 +1,5 @@
-use std::str::Lines;
 use itertools::Itertools;
+use std::str::Lines;
 
 #[allow(unused)]
 fn solve(input: &str) -> usize {
@@ -19,8 +19,7 @@ fn solve(input: &str) -> usize {
 }
 
 pub fn parse_ranges(it: &mut Lines) -> Vec<(usize, usize)> {
-    it
-        .take_while_ref(|line| !line.is_empty())
+    it.take_while_ref(|line| !line.is_empty())
         .map(|line| line.split_once('-').unwrap())
         .map(|(lower, upper)| {
             (
